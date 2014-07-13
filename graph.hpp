@@ -74,7 +74,7 @@ public:
   ~graph() {}
   void dot()
   {
-    std::cout << "digraph graph {" << std::endl;
+    std::cout << "digraph xxx {" << std::endl;
     std::cout << "overlap = false;" << std::endl;
     for (int x = 0; x < V; ++x) {
       for (int i = 0; i < (int)adjlist[x].size(); ++i) {
