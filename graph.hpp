@@ -2,6 +2,7 @@
 #include <vector>
 #include <cstdlib>
 #include <set>
+#include <cmath>
 
 static uint64_t
 xor128(int seed=0)
@@ -41,7 +42,7 @@ class graph
   }
   void generate_random()
   {
-    pair<int,int> pq = double2fraction(P); // P=0.25   pq.first=1  pq.second=4
+    std::pair<int,int> pq = double2cf(P); // P=0.25   pq.first=1  pq.second=4
     int cnt = 0;
     for (int x = 0; x < V; ++x) {
       for (int y = 0; y < V; ++y) {
@@ -84,6 +85,7 @@ class graph
     for (int i = 0; i < N; ++i) {
       a[i] = (int)d;
       if (d - a[i] < EPS) {
+	ret = cf2double(a);
 	break;
       }
       d = 1.0 / (d-a[i]);
